@@ -1,0 +1,31 @@
+<div class="content">
+  <div class="side-bar">
+    <ul class="titles">
+      <% @posts.each do |post| %>
+        <li class="title">
+          <%=link_to post.title, post_path(post) %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="main-content">
+    <div class="my-blog">
+      <div class="my-title">
+        <%= @post.title %>
+      </div>
+      <iframe width="560" height="315"
+      src="https://www.youtube.com/embed/VxP1cp8KS1o?start=10"
+      frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </iframe>
+      <div class="my-text">
+        <%= @post.text %>
+      </div>
+      <div class="comments">
+        <%= form_with(model: [@post, @comment], id: "new-comment") do |form| %>
+          <%= form.text_area :text, placeholder: "コメントする", class: "textbox" %>
+          <%= form.submit "送信", class: "form__submit" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

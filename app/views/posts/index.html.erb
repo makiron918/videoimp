@@ -1,0 +1,13 @@
+<div class="content">
+  <div class="side-bar">
+    <ul class="titles">
+      <% @post.each do |post| %>
+        <li class="title">
+          <%=link_to post.title, post_path(post) %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="main-content">
+  </div>
+</div>
