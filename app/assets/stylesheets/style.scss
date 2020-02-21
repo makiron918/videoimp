@@ -133,18 +133,26 @@ body {
     width: 250px;
     font-size: 20px;
     font-weight: bold;
-    color: #FFF;
     padding-left: 10px;
-    cursor: pointer;
+    a {
+      color: #FFF;
+      text-decoration: none;
+      cursor: pointer;
+    }
   }
 }
 .content {
-  overflow: scroll;
+  min-height: 100vh;
+  display: flex;
+  overflow: hidden;
   .side-bar {
     background-color: darkkhaki;
-    float: left;
-    height: calc(100vh - 40px);
+    /* float: left; */
+    height: 100vh;
     width: 200px;
+    overflow: scroll;
+    padding-bottom: 10000px;
+    margin-bottom: -10000px;
     ul {
       margin: 10px 0 0 10px;
       li {
@@ -157,12 +165,38 @@ body {
     }
   }
   .main-content {
-    height: calc(100vh - 40px);
+    height: 100vh;
     width: calc(100vw - 200px);
     background-image: url("illustrain10-kikai17.png");
-    float: left;
+    /* float: left; */
+    overflow: scroll;
     .my-blog {
-      padding: 10px 0 0 10px;
+      padding: 10px 0 0 15px;
+      .my-title {
+        margin-bottom: 10px;
+        font-size: 18px;
+        color: olive;
+        font-weight: bold;
+      }
+      .my-text {
+        margin: 10px 0;
+      }
+      .comment {
+        .form__submit {
+          height: 10px;
+          cursor: pointer;
+        }
+      }
+      .comments-list {
+        h4 {
+          color: peru;
+          margin-bottom: 10px;
+        }
+        .comments {
+          margin-bottom: 10px;
+          font-size: 12px;
+        }
+      }
     }
   }
 }
