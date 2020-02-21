@@ -7,7 +7,7 @@ class PostsController < ApplicationController
     @posts = Post.all
     @post = Post.find(params[:id])
     @comment = Comment.new
-    @comments = @post.comments.includes(:user)
+    @comments = @post.comments
   end
 
   private

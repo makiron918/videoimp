@@ -14,16 +14,26 @@
         <%= @post.title %>
       </div>
       <iframe width="560" height="315"
-      src="https://www.youtube.com/embed/VxP1cp8KS1o?start=10"
+      src="<%= @post.url %>"
       frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </iframe>
       <div class="my-text">
         <%= @post.text %>
       </div>
-      <div class="comments">
+      <div class="comment">
         <%= form_with(model: [@post, @comment], id: "new-comment") do |form| %>
-          <%= form.text_area :text, placeholder: "コメントする", class: "textbox" %>
+          <%= form.text_area :comment, placeholder: "コメントする", class: "textbox", size: "30x5" %>
           <%= form.submit "送信", class: "form__submit" %>
+        <% end %>
+      </div>
+      <div class="comments-list">
+        <h4>コメント一覧</h4>
+        <% if @comments %>
+          <% @comments.each do |comment| %>
+            <div class="comments">
+              <%= comment.comment %>
+            </div>
+          <% end %>
         <% end %>
       </div>
     </div>
